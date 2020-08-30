@@ -1,0 +1,110 @@
+$accent: #e01111;
+$yellow: #ffc80b;
+$fontsize: 18px;
+$textcolor: #000000;
+$avenir: AvenirNext, sans-serif;
+
+@mixin placeholder() {
+    &::placeholder {
+      @content;
+    }
+}
+
+@keyframes tableDecor {
+	0% {
+		transform: scale(.8);
+	}
+	50% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(.8);
+	}
+}
+
+@keyframes sizeBtn {
+	0% {
+		transform: scale(.9);
+	}
+	50% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(.9);
+	}
+}
+
+@mixin font($fname, $fstyle, $fweight, $furl) {
+	@font-face {
+		font-family: $fname;
+		font-style: $fstyle;
+		font-weight: $fweight;
+		// font-display: swap; // Uncomment to initially display system fonts
+		src: local($fname), url($furl) format('woff2');
+	}
+}
+
+@include font('AvenirNextCyr', normal, 400, '../fonts/AvenirNextCyr-Regular.woff2');
+// @include font('AvenirNext', normal, 400, '../fonts/AvenirNextRegular.woff2');
+@include font('AvenirNext', italic, 400, '../fonts/AvenirNextCyr-Italic.woff2');
+@include font('AvenirNext', normal, 500, '../fonts/AvenirNextCyr-Medium.woff2');
+@include font('AvenirNext', normal, 700, '../fonts/AvenirNextCyr-Bold.woff2');
+@include font('AvenirNext', normal, 900, '../fonts/AvenirNextCyr-Heavy.woff2');
+
+* {
+	box-sizing: border-box;
+}
+
+ul, ol {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+input, textarea {
+	outline: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+a, button {
+	&:focus {
+		outline: none;
+	}
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+body {
+	position: relative;
+	min-width: 320px;
+	width: 100%;
+	color: $textcolor;
+	font-family: $avenir;
+	font-size: $fontsize;
+	line-height: 1.45;
+	overflow-x: hidden;	
+	margin: 0;
+	&.active-mobile {
+		overflow-y: hidden;
+		&:before {
+			content: '';
+			width: 100vw;
+			height: 100vh;
+			position: fixed;
+			top: 0;
+			left: 0;
+			background-color: rgba(0,0,0,.4);
+			z-index: 23;
+		}
+	}
+}
+
+html {
+    overflow-y: scroll;
+}
