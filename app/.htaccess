@@ -1,6 +1,7 @@
 <ifModule mod_expires.c>
 
 # Add correct content-type for fonts & SVG
+AddType application/x-font-woff .woff
 AddType application/font-woff2 .woff2
 AddType image/svg+xml .svg
 
